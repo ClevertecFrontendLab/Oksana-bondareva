@@ -4,7 +4,16 @@ import { HeaderIconText } from '../icons/HeaderIconText';
 import { LogoIcon } from '../icons/HeaderLogoIcon';
 
 const Header = () => (
-    <Box as='header' bg='#FFFFD3' h='80px' w='100%' display='flex' alignItems='center' pr='56px'>
+    <Box
+        as='header'
+        bg='#FFFFD3'
+        h='80px'
+        w='100%'
+        display='flex'
+        alignItems='center'
+        pr='56px'
+        data-test-id='header'
+    >
         <Box w='100%' maxW='container.xl' mx='auto' px='16px'>
             <Flex justifyContent='space-between' alignItems='center'>
                 <Flex alignItems='center' gap='128px'>
