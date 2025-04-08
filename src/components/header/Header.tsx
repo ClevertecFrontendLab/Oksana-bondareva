@@ -1,7 +1,8 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 import { HeaderIconText } from '../icons/HeaderIconText';
 import { LogoIcon } from '../icons/HeaderLogoIcon';
+import { UserProfile } from '../userProfile/UserProfile';
 
 const Header = () => (
     <Box
@@ -23,23 +24,11 @@ const Header = () => (
                     </Flex>
                     <Text>Главная</Text>
                 </Flex>
-                <Flex alignItems='center' gap='12px'>
-                    <Image
-                        src='/images/avatar.png'
-                        alt='avatar'
-                        width='48px'
-                        height='48px'
-                        borderRadius='full'
-                    />
-                    <Box textAlign='left'>
-                        <Text fontWeight='500' fontSize='18px'>
-                            Екатерина Константинопольская
-                        </Text>
-                        <Text color='#000000A3' fontSize='14px'>
-                            @bake_and_pie
-                        </Text>
-                    </Box>
-                </Flex>
+                <UserProfile
+                    avatarUrl='/images/avatar.png'
+                    name='Екатерина Константинопольская'
+                    username='bake_and_pie'
+                />
             </Flex>
         </Box>
     </Box>

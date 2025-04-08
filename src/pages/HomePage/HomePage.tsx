@@ -1,11 +1,11 @@
-import { Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
-import SideMenu from '~/components/sideMenu/SideMenu';
+import HomeContent from '~/components/homeContent/HomeContent';
 
 const HomePage = () => (
-    <Box>
-        <SideMenu />
-    </Box>
+    <Flex>
+        <HomeContent />
+    </Flex>
 );
 
 export default HomePage;
