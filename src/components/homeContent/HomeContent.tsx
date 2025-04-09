@@ -1,21 +1,10 @@
-import { ChevronDownIcon, SearchIcon } from '@chakra-ui/icons';
-import {
-    Box,
-    Button,
-    Flex,
-    Heading,
-    IconButton,
-    Image,
-    Input,
-    InputGroup,
-    InputRightElement,
-    Text,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 import { AuthorCardProps } from '~/utils/types';
 
 import { ArrowRight } from '../icons/ArrowRight';
-import { InputButtonIcon } from '../icons/InputButtonIcon';
+import { PageHeader } from '../pageHeader/PageHeader';
 import { VeganKitchen } from '../veganKitchen/VeganKitchen';
 import { AuthorsList } from './AuthorsList';
 import JuiciestList from './JuiciestList';
@@ -157,119 +146,67 @@ const authorsData: AuthorCardProps[] = [
     },
 ];
 
-const HomeContent = () => (
-    <Flex maxW='1360px' flexDirection='column' width='100%'>
-        <Flex flexDirection='column' alignItems='center' width='100%'>
-            <Flex flexDirection='column' alignItems='center' maxW='518px'>
-                <Heading as='h1' fontSize='48px' py='32px'>
-                    Приятного аппетита!
+const HomeContent = () => {
+    const navigate = useNavigate();
+
+    return (
+        <Flex maxW='1360px' flexDirection='column' width='100%'>
+            <PageHeader title='Приятного аппетита!' />
+            <Box width='100%' px='20px'>
+                <Heading as='h2' fontSize='48px' py='32px' fontWeight='500' textAlign='left'>
+                    Новые рецепты
                 </Heading>
-                <Flex flexDirection='column' alignItems='center'>
-                    <Flex gap='12px'>
-                        <Box border='1px solid #0000007A' borderRadius='6px' p='12px'>
-                            <InputButtonIcon />
-                        </Box>
-                        <InputGroup
-                            w='458px'
-                            border='1px solid #0000007A'
-                            borderRadius='6px'
-                            pl='16px'
-                        >
-                            <Input
-                                w='410px'
-                                placeholder='Название или ингредиент...'
-                                _placeholder={{ color: '#134B00', fontSize: '18px' }}
-                                border='none'
-                            />
-                            <InputRightElement p='15px'>
-                                <IconButton
-                                    aria-label='Search'
-                                    icon={<SearchIcon boxSize='18px' />}
-                                    size='sm'
-                                    h='100%'
-                                    w='100%'
-                                    background='white'
-                                    border='none'
-                                />
-                            </InputRightElement>
-                        </InputGroup>
-                    </Flex>
-                    <Flex pt='16px' alignItems='center'>
-                        <Text pl='8px'>Исключить мои аллергены</Text>
-                        <Image src='/icons/Switch.svg' alt='Switch' pl='12px' mr='16px' />
-                        <InputGroup
-                            border='1px solid #00000014'
-                            borderRadius='6px'
-                            w='234px'
-                            pl='16px'
-                            py='8px'
-                        >
-                            <Input
-                                border='none'
-                                placeholder='Выберите из списка...'
-                                _placeholder={{ color: '#000000A3', fontSize: '16px' }}
-                            />
-                            <InputRightElement pr='10px' pt='6px'>
-                                <ChevronDownIcon color='#000000A3' boxSize='20px' />
-                            </InputRightElement>
-                        </InputGroup>
-                    </Flex>
+                <NewRecipeList recipes={recipesNew} />
+            </Box>
+            <Box width='100%' px='20px' py='40px'>
+                <Flex justifyContent='space-between' alignItems='center'>
+                    <Heading as='h2' fontSize='48px' pb='32px' fontWeight='500' textAlign='left'>
+                        Самое сочное
+                    </Heading>
+                    <Button
+                        display='flex'
+                        gap='8px'
+                        h='48px'
+                        background='#B1FF2E'
+                        fontSize='18px'
+                        fontWeight='600'
+                        py='6px'
+                        px='12px'
+                        border='1px solid #B1FF2E'
+                        borderRadius='6px'
+                        cursor='pointer'
+                        onClick={() => navigate('/best')}
+                    >
+                        Вся подборка
+                        <ArrowRight />
+                    </Button>
                 </Flex>
-            </Flex>
+                <JuiciestList recipes={recipesJuiciest} />
+            </Box>
+            <Box mx='24px' p='24px' background='#C4FF61' borderRadius='16px' mb='40px'>
+                <Flex justifyContent='space-between' alignItems='center'>
+                    <Heading as='h2' fontSize='48px' pb='32px' fontWeight='500' textAlign='left'>
+                        Кулинарные блоги
+                    </Heading>
+                    <Button
+                        display='flex'
+                        gap='8px'
+                        h='48px'
+                        background='#C4FF61'
+                        fontSize='18px'
+                        fontWeight='600'
+                        border='none'
+                        cursor='pointer'
+                    >
+                        Все авторы
+                        <ArrowRight />
+                    </Button>
+                </Flex>
+                <AuthorsList authors={authorsData} />
+            </Box>
+            <VeganKitchen />
         </Flex>
-        <Box width='100%' px='20px'>
-            <Heading as='h2' fontSize='48px' py='32px' fontWeight='500' textAlign='left'>
-                Новые рецепты
-            </Heading>
-            <NewRecipeList recipes={recipesNew} />
-        </Box>
-        <Box width='100%' px='20px' py='40px'>
-            <Flex justifyContent='space-between' alignItems='center'>
-                <Heading as='h2' fontSize='48px' pb='32px' fontWeight='500' textAlign='left'>
-                    Самое сочное
-                </Heading>
-                <Button
-                    display='flex'
-                    gap='8px'
-                    h='48px'
-                    background='#B1FF2E'
-                    fontSize='18px'
-                    fontWeight='600'
-                    py='6px'
-                    px='12px'
-                    border='1px solid #B1FF2E'
-                    borderRadius='6px'
-                    cursor='pointer'
-                >
-                    Вся подборка
-                    <ArrowRight />
-                </Button>
-            </Flex>
-            <JuiciestList recipes={recipesJuiciest} />
-        </Box>
-        <Box mx='24px' p='24px' background='#C4FF61' borderRadius='16px' mb='40px'>
-            <Flex justifyContent='space-between' alignItems='center'>
-                <Heading as='h2' fontSize='48px' pb='32px' fontWeight='500' textAlign='left'>
-                    Кулинарные блоги
-                </Heading>
-                <Button
-                    display='flex'
-                    gap='8px'
-                    h='48px'
-                    background='#C4FF61'
-                    fontSize='18px'
-                    fontWeight='600'
-                    border='none'
-                    cursor='pointer'
-                >
-                    Все авторы
-                    <ArrowRight />
-                </Button>
-            </Flex>
-            <AuthorsList authors={authorsData} />
-        </Box>
-        <VeganKitchen />
-    </Flex>
-);
+    );
+};
 
 export default HomeContent;
