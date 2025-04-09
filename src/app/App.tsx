@@ -14,7 +14,7 @@ function App() {
     return (
         <Box>
             <Header />
-            <Flex>
+            <Flex justifyContent='space-between'>
                 <SideMenu />
                 <HomePage />
                 <Marks />

@@ -7,7 +7,6 @@ import {
     Flex,
     Image,
     Text,
-    VStack,
 } from '@chakra-ui/react';
 
 import { ArrowIcon } from '../icons/ArrowIcon';
@@ -41,37 +40,43 @@ const menuItems = [
 ];
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => (
-    <VStack align='stretch' pl='10px' pr='16px'>
-        <Accordion allowToggle border='none'>
-            <AccordionItem border='none'>
-                <AccordionButton
-                    h='48px'
-                    display='flex'
-                    alignItems='center'
-                    gap='16px'
-                    px='8px'
-                    py='12px'
-                    border='none'
-                    bg='white'
-                >
-                    <Image src={item.icon} alt={item.alt} />
-                    <Box flex='1' textAlign='left' fontSize='16px'>
-                        {item.label}
-                    </Box>
-                    <ArrowIcon />
-                </AccordionButton>
-                <AccordionPanel></AccordionPanel>
-            </AccordionItem>
-        </Accordion>
-    </VStack>
+    <AccordionItem border='none'>
+        <AccordionButton
+            h='48px'
+            display='flex'
+            alignItems='center'
+            gap='16px'
+            px='8px'
+            py='12px'
+            border='none'
+            bg='white'
+        >
+            <Image src={item.icon} alt={item.alt} />
+            <Box flex='1' textAlign='left' fontSize='16px'>
+                {item.label}
+            </Box>
+            <ArrowIcon />
+        </AccordionButton>
+        <AccordionPanel></AccordionPanel>
+    </AccordionItem>
 );
 
 const SideMenu: React.FC = () => (
-    <Box w='256px' h='100%' pt='34px' pb='32px' borderRight='1px solid #00000033'>
-        {menuItems.map((item, index) => (
-            <MenuItem key={`${item.label}-${index}`} item={item} />
-        ))}
-        <Flex flexDirection='column' textAlign='left' pl='24px' gap='16px' mt='228px' w='208px'>
+    <Flex
+        flexDirection='column'
+        justifyContent='space-between'
+        w='256px'
+        h='calc(130vh - 80px)'
+        pt='34px'
+        pb='32px'
+        borderRight='1px solid #00000033'
+    >
+        <Accordion allowToggle overflowY='auto' border='none' pl='10px' pr='16px'>
+            {menuItems.map((item, index) => (
+                <MenuItem key={`${item.label}-${index}`} item={item} />
+            ))}
+        </Accordion>
+        <Flex flexDirection='column' textAlign='left' pl='24px' gap='16px' w='208px'>
             <Text color='#0000003D' fontSize='16px'>
                 Версия программы 03.25
             </Text>
@@ -83,7 +88,7 @@ const SideMenu: React.FC = () => (
                 Выйти
             </Flex>
         </Flex>
-    </Box>
+    </Flex>
 );
 
 export default SideMenu;

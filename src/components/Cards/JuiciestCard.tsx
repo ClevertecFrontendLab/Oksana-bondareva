@@ -63,7 +63,7 @@ const JuiciestCard: React.FC<RecipeCardProps> = ({
                     {favorites && (
                         <Flex align='center' gap='5px'>
                             <FavoritesIcon w='12px' h='12px' />
-                            <Text fontSize='12px' color='#2DB100'>
+                            <Text fontSize='12px' fontWeight='600' color='#2DB100'>
                                 {favorites}
                             </Text>
                         </Flex>
@@ -71,7 +71,7 @@ const JuiciestCard: React.FC<RecipeCardProps> = ({
                     {likes && (
                         <Flex align='center' gap='5px'>
                             <LikesIcon w='12px' h='12px' />
-                            <Text fontSize='12px' color='#2DB100'>
+                            <Text fontSize='12px' fontWeight='600' color='#2DB100'>
                                 {likes}
                             </Text>
                         </Flex>
