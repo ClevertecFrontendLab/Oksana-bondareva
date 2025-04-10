@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
-import { ButtonCook } from '../buttonCook/ButtonCook';
+import { ButtonCook } from '../buttons/ButtonCook';
 import MiniCard from '../Cards/MiniCard';
 
 export const VeganKitchen = () => (
