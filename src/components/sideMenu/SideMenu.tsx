@@ -9,6 +9,9 @@ import {
     Text,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Link } from 'react-router';
+
+import { menuItems } from '~/data/SideMenuItems';
 
 import { ArrowIcon } from '../icons/ArrowIcon';
 import { ExitIcon } from '../icons/ExitIcon';
@@ -20,36 +23,6 @@ interface MenuItem {
     children?: MenuItem[];
 }
 
-const menuItems = [
-    { icon: '/icons/eggplant.svg', alt: 'eggplant', label: 'Салаты' },
-    { icon: '/icons/snacks.svg', alt: 'snacks', label: 'Закуски' },
-    { icon: '/icons/pot.svg', alt: 'pot', label: 'Первые блюда' },
-    { icon: '/icons/fryingPan.svg', alt: 'frying pan', label: 'Вторые блюда' },
-    { icon: '/icons/bread.svg', alt: 'bread', label: 'Десерты, выпечка' },
-    { icon: '/icons/dishwasher.svg', alt: 'dishwasher', label: 'Блюда на гриле' },
-    {
-        icon: '/icons/fryingPan.svg',
-        alt: 'frying pan',
-        label: 'Веганская кухня',
-        children: [
-            { label: 'Закуски' },
-            { label: 'Первые блюда' },
-            { label: 'Вторые блюда' },
-            { label: 'Гарниры' },
-            { label: 'Десерты' },
-            { label: 'Выпечка' },
-            { label: 'Сыроедческие блюда' },
-            { label: 'Напитки' },
-        ],
-    },
-    { icon: '/icons/child.svg', alt: 'child', label: 'Детские блюда' },
-    { icon: '/icons/pot1.svg', alt: 'pot', label: 'Лечебное питание' },
-    { icon: '/icons/international-food.svg', alt: 'international food', label: 'Национальные' },
-    { icon: '/icons/mortar.svg', alt: 'mortar', label: 'Соусы' },
-    { icon: '/icons/cup.svg', alt: 'cup', label: 'Напитки' },
-    { icon: '/icons/jar.svg', alt: 'jar', label: 'Заготовки' },
-];
-
 const MenuItem: React.FC<{
     item: MenuItem;
     isActive: boolean;
@@ -59,7 +32,7 @@ const MenuItem: React.FC<{
 }> = ({ item, onClick, activeSubItem, setActiveSubItem }) => (
     <AccordionItem border='none'>
         {({ isExpanded }) => (
-            <>
+            <Link to='/vegan' style={{ textDecoration: 'none', width: '100%' }}>
                 <AccordionButton
                     h='48px'
                     display='flex'
@@ -95,22 +68,31 @@ const MenuItem: React.FC<{
                                 alignItems='center'
                                 gap='12px'
                                 py='4px'
-                                borderLeft={
-                                    activeSubItem === sub.label
-                                        ? '8px solid #C4FF61'
-                                        : '1px solid #C4FF61'
-                                }
+                                pl='16px'
+                                position='relative'
+                                borderLeft='1px solid #C4FF61'
                                 fontWeight={activeSubItem === sub.label ? 'bold' : 'normal'}
                                 cursor='pointer'
                                 onClick={() => setActiveSubItem(sub.label)}
                             >
-                                <Image src={sub.icon} alt={sub.alt} />
-                                <Text fontSize='16px'>{sub.label}</Text>
+                                {activeSubItem === sub.label && (
+                                    <Box
+                                        position='absolute'
+                                        left='-8px'
+                                        top='0'
+                                        bottom='0'
+                                        width='8px'
+                                        bg='#C4FF61'
+                                    />
+                                )}
+                                <Text fontSize='16px' color='black' textAlign='left'>
+                                    {sub.label}
+                                </Text>
                             </Flex>
                         ))}
                     </AccordionPanel>
                 )}
-            </>
+            </Link>
         )}
     </AccordionItem>
 );

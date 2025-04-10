@@ -32,3 +32,10 @@ export interface AuthorCardProps {
 export interface AuthorsListProps {
     authors: AuthorCardProps[];
 }
+
+export interface MenuSideItem {
+    icon?: string;
+    alt?: string;
+    label: string;
+    children?: MenuSideItem[];
+}

@@ -9,6 +9,7 @@ import { UserProfile } from '../userProfile/UserProfile';
 const Header = () => {
     const location = useLocation();
     const isJuiciestPage = location.pathname === '/best';
+    const isVeganPage = location.pathname === '/vegan';
 
     return (
         <Box
@@ -28,15 +29,25 @@ const Header = () => {
                             <LogoIcon color='#2B823F' width='32px' height='32px' />
                             <HeaderIconText color='#2B823F' width='96px' height='24px' />
                         </Flex>
-                        {isJuiciestPage ? (
-                            <Flex alignItems='center' gap='10px'>
-                                <Text color='#000000A3'>Главное</Text>
-                                <ArrowIconRight mt='5px' />
-                                <Text>Самое сочное</Text>
-                            </Flex>
-                        ) : (
-                            <Text>Главная</Text>
-                        )}
+                        <Flex alignItems='center' gap='10px'>
+                            <Text color={isJuiciestPage || isVeganPage ? '#000000A3' : '#000000'}>
+                                Главное
+                            </Text>
+                            {isJuiciestPage && (
+                                <>
+                                    <ArrowIconRight mt='5px' />
+                                    <Text>Самое сочное</Text>
+                                </>
+                            )}
+                            {isVeganPage && (
+                                <>
+                                    <ArrowIconRight mt='5px' />
+                                    <Text color='#000000A3'>Веганская кухня</Text>
+                                    <ArrowIconRight mt='5px' />
+                                    <Text>Вторые блюда</Text>
+                                </>
+                            )}
+                        </Flex>
                     </Flex>
                     <UserProfile
                         avatarUrl='/images/avatar.png'

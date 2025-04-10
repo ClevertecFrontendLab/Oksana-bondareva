@@ -22,15 +22,17 @@ interface PageHeaderProps {
 
 export const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle }) => (
     <Flex flexDirection='column' alignItems='center' width='100%'>
-        <Flex flexDirection='column' alignItems='center' maxW='518px'>
-            <Heading as='h1' fontSize='48px' py='32px'>
-                {title}
-            </Heading>
-            {subtitle && (
-                <Text fontSize='18px' color='#134B00' pt='8px'>
-                    {subtitle}
-                </Text>
-            )}
+        <Flex flexDirection='column' alignItems='center' maxW='700px'>
+            <Box py='32px'>
+                <Heading as='h1' fontSize='48px'>
+                    {title}
+                </Heading>
+                {subtitle && (
+                    <Text fontSize='16px' color='#0000007A' pt='12px'>
+                        {subtitle}
+                    </Text>
+                )}
+            </Box>
             <Flex flexDirection='column' alignItems='center'>
                 <Flex gap='12px'>
                     <Box border='1px solid #0000007A' borderRadius='6px' p='12px'>

@@ -8,6 +8,7 @@ import { Marks } from '~/components/marks/Marks';
 import SideMenu from '~/components/sideMenu/SideMenu';
 import HomePage from '~/pages/HomePage/HomePage';
 import JuiciestPage from '~/pages/JuiciestPage/JuiciestPage';
+import VeganKitchenPage from '~/pages/VeganKitchenPage/VeganKitchenPage';
 import { useGetPostsQuery } from '~/query/services/posts.ts';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/best' element={<JuiciestPage />} />
+                    <Route path='/vegan' element={<VeganKitchenPage />} />
                 </Routes>
                 <Marks />
             </Flex>

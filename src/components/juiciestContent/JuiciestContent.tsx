@@ -1,5 +1,6 @@
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 
+import { ButtonUpload } from '../buttons/ButtonUpload';
 import JuiciestList from '../homeContent/JuiciestList';
 import { PageHeader } from '../pageHeader/PageHeader';
 import { VeganKitchen } from '../veganKitchen/VeganKitchen';
@@ -112,18 +113,7 @@ const JuiciestContent = () => (
             <JuiciestList recipes={recipesJuiciest} />
         </Box>
         <Box pb='40px'>
-            <Button
-                background='#B1FF2E'
-                fontSize='16px'
-                fontWeight='600'
-                py='8px'
-                px='16px'
-                border='1px solid #B1FF2E'
-                borderRadius='6px'
-                cursor='pointer'
-            >
-                Загрузить еще
-            </Button>
+            <ButtonUpload />
         </Box>
         <VeganKitchen />
     </Flex>
