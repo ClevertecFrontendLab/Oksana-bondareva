@@ -1,20 +1,39 @@
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 import { ButtonCook } from '../buttons/ButtonCook';
-import MiniCard from '../Cards/MiniCard';
+import MiniCard from '../cards/MiniCard';
 
 export const VeganKitchen = () => (
-    <Box px='24px'>
-        <Flex justifyContent='space-between' alignItems='center' borderTop='1px solid #00000014'>
-            <Heading as='h2' fontSize='48px' py='12px' fontWeight='500' textAlign='left'>
+    <Box ml={{ xl: '2px', md: '0px' }}>
+        <Flex
+            justifyContent='space-between'
+            flexDirection={{ xl: 'row', md: 'column' }}
+            alignItems={{ xl: 'center', md: 'left' }}
+            borderTop='1px solid #00000014'
+        >
+            <Heading
+                as='h2'
+                fontSize={{ xl: '48px', md: '24px' }}
+                pt={{ xl: '16px', md: '10px' }}
+                pb={{ xl: '10px', md: '4px' }}
+                fontWeight='500'
+                textAlign='left'
+                letterSpacing={1.8}
+            >
                 Веганская кухня
             </Heading>
-            <Text color='#000000A3' fontSize='16px' maxW='668px' textAlign='left'>
+            <Text
+                color='#000000A3'
+                fontSize={{ xl: '16px', md: '14px' }}
+                maxW={{ xl: '660px', md: '100%' }}
+                textAlign='left'
+                pt='8px'
+            >
                 Интересны не только убеждённым вегетарианцам, но и тем, кто хочет попробовать
                 вегетарианскую диету и готовить вкусные вегетарианские блюда.
             </Text>
         </Flex>
-        <Flex gap='24px' pt='12px'>
+        <Flex gap={{ xl: '21px', md: '12px' }} pt={{ xl: '12px', md: '15px' }}>
             <MiniCard
                 id='1'
                 title='Картошка, тушенная с болгарским перцем и фасолью в томатном соусе'
@@ -33,7 +52,7 @@ export const VeganKitchen = () => (
                 likes={1}
                 favorites={2}
             />
-            <Flex flexDirection='column' w='100%' gap='12px'>
+            <Flex flexDirection='column' w='100%' gap={{ xl: '12px', md: '6px' }}>
                 <Flex
                     justifyContent='space-between'
                     alignItems='center'
@@ -41,12 +60,18 @@ export const VeganKitchen = () => (
                     borderStyle='solid'
                     borderColor='#00000014'
                     borderRadius='8px'
-                    px='24px'
-                    py='14px'
+                    pl={{ xl: '24px', md: '12px' }}
+                    pr={{ xl: '20px', md: '12px' }}
+                    py='9px'
                 >
-                    <Flex w='70%' gap='12px'>
+                    <Flex gap='12px'>
                         <Image src='/icons/fryingPan.svg' alt='frying pan' />
-                        <Text fontSize='20px' fontWeight='500'>
+                        <Text
+                            fontSize={{ xl: '20px', md: '16px' }}
+                            fontWeight='500'
+                            noOfLines={1}
+                            textAlign='left'
+                        >
                             Стейк для вегетарианцев
                         </Text>
                     </Flex>
@@ -59,12 +84,18 @@ export const VeganKitchen = () => (
                     borderStyle='solid'
                     borderColor='#00000014'
                     borderRadius='8px'
-                    px='24px'
-                    py='14px'
+                    pl={{ xl: '24px', md: '11px' }}
+                    pr={{ xl: '20px', md: '12px' }}
+                    py='9px'
                 >
-                    <Flex w='70%' gap='12px'>
+                    <Flex gap='12px'>
                         <Image src='/icons/fryingPan.svg' alt='frying pan' />
-                        <Text fontSize='20px' fontWeight='500'>
+                        <Text
+                            fontSize={{ xl: '20px', md: '16px' }}
+                            fontWeight='500'
+                            noOfLines={1}
+                            textAlign='left'
+                        >
                             Котлеты из гречки и фасоли
                         </Text>
                     </Flex>
@@ -77,12 +108,18 @@ export const VeganKitchen = () => (
                     borderStyle='solid'
                     borderColor='#00000014'
                     borderRadius='8px'
-                    px='24px'
-                    py='14px'
+                    pl={{ xl: '24px', md: '11px' }}
+                    pr={{ xl: '20px', md: '12px' }}
+                    py='9px'
                 >
-                    <Flex w='70%' gap='12px'>
+                    <Flex gap='12px'>
                         <Image src='/icons/pot.svg' alt='pot' />
-                        <Text fontSize='20px' fontWeight='500'>
+                        <Text
+                            fontSize={{ xl: '20px', md: '16px' }}
+                            fontWeight='500'
+                            noOfLines={1}
+                            textAlign='left'
+                        >
                             Сырный суп с лапшой и брокколи
                         </Text>
                     </Flex>

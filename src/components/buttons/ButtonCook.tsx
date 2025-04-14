@@ -7,10 +7,12 @@ export const ButtonCook = () => (
         borderColor='#2DB100'
         borderRadius='6px'
         color='#2DB100'
-        px='12px'
-        py='6px'
+        px={{ xl: '12px', md: '7px' }}
+        h={{ xl: '35px', md: '32px' }}
         bg='white'
         cursor='pointer'
+        fontSize={{ xl: '14px', md: '12px' }}
+        flexShrink={0}
     >
         Готовить
     </Button>

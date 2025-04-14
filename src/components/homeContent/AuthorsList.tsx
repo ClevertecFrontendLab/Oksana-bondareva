@@ -2,11 +2,11 @@ import { Box, SimpleGrid } from '@chakra-ui/react';
 
 import { AuthorsListProps } from '~/utils/types';
 
-import { AuthorCard } from '../Cards/AuthorCard';
+import { AuthorCard } from '../cards/AuthorCard';
 
 export const AuthorsList = ({ authors }: AuthorsListProps) => (
-    <Box mx='auto' py={8}>
-        <SimpleGrid columns={3} spacing='16px' px={4}>
+    <Box pt={{ xl: 8, md: 4 }}>
+        <SimpleGrid columns={3} spacing='16px'>
             {authors.map((author, index) => (
                 <AuthorCard key={`${author.author.username}-${index}`} {...author} />
             ))}

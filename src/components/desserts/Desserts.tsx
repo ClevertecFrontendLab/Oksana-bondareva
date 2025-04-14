@@ -1,21 +1,40 @@
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 import { ButtonCook } from '../buttons/ButtonCook';
-import MiniCard from '../Cards/MiniCard';
+import MiniCard from '../cards/MiniCard';
 
 export const Desserts = () => (
-    <Box px='24px'>
-        <Flex justifyContent='space-between' alignItems='center' borderTop='1px solid #00000014'>
-            <Heading as='h2' fontSize='48px' py='12px' fontWeight='500' textAlign='left'>
+    <Box>
+        <Flex
+            justifyContent='space-between'
+            flexDirection={{ xl: 'row', md: 'column' }}
+            alignItems={{ xl: 'center', md: 'left' }}
+            pb={{ xl: '12px', md: '0px' }}
+            borderTop='1px solid #00000014'
+        >
+            <Heading
+                as='h2'
+                fontSize={{ xl: '48px', md: '24px' }}
+                pt={{ xl: '0px', md: '10px' }}
+                fontWeight='500'
+                textAlign='left'
+                letterSpacing={1.8}
+            >
                 Десерты, выпечка
             </Heading>
-            <Text color='#000000A3' fontSize='16px' maxW='668px' textAlign='left'>
+            <Text
+                color='#000000A3'
+                fontSize={{ xl: '16px', md: '14px' }}
+                pt={{ xl: '22px', md: '12px' }}
+                maxW={{ xl: '660px', md: '100%' }}
+                textAlign='left'
+            >
                 Без них невозможно представить себе ни современную, ни традиционную кулинарию.
                 Пироги и печенья, блины, пончики, вареники и, конечно, хлеб - рецепты изделий из
                 теста многообразны и невероятно популярны.
             </Text>
         </Flex>
-        <Flex gap='24px' pt='12px'>
+        <Flex gap={{ xl: '24px', md: '12px' }} pt={{ xl: '12px', md: '15px' }}>
             <MiniCard
                 id='1'
                 title='Бананово-молочное желе'
@@ -34,7 +53,7 @@ export const Desserts = () => (
                 likes={2}
                 favorites={1}
             />
-            <Flex flexDirection='column' w='100%' gap='12px'>
+            <Flex flexDirection='column' w='100%' gap={{ xl: '12px', md: '6px' }}>
                 <Flex
                     justifyContent='space-between'
                     alignItems='center'
@@ -42,12 +61,18 @@ export const Desserts = () => (
                     borderStyle='solid'
                     borderColor='#00000014'
                     borderRadius='8px'
-                    px='24px'
-                    py='14px'
+                    pl={{ xl: '24px', md: '12px' }}
+                    pr={{ xl: '22px', md: '12px' }}
+                    py='9px'
                 >
-                    <Flex w='70%' gap='12px'>
+                    <Flex gap='5px'>
                         <Image src='/icons/child.svg' alt='frying pan' />
-                        <Text fontSize='20px' fontWeight='500'>
+                        <Text
+                            fontSize={{ xl: '18px', md: '16px' }}
+                            fontWeight='500'
+                            noOfLines={1}
+                            textAlign='left'
+                        >
                             Домашние сырные палочки
                         </Text>
                     </Flex>
@@ -60,12 +85,18 @@ export const Desserts = () => (
                     borderStyle='solid'
                     borderColor='#00000014'
                     borderRadius='8px'
-                    px='24px'
-                    py='14px'
+                    pl={{ xl: '24px', md: '12px' }}
+                    pr={{ xl: '22px', md: '12px' }}
+                    py='9px'
                 >
-                    <Flex w='70%' gap='12px'>
+                    <Flex gap='5px'>
                         <Image src='/icons/international-food.svg' alt='frying pan' />
-                        <Text fontSize='20px' fontWeight='500'>
+                        <Text
+                            fontSize={{ xl: '18px', md: '16px' }}
+                            fontWeight='500'
+                            noOfLines={1}
+                            textAlign='left'
+                        >
                             Панкейки
                         </Text>
                     </Flex>
@@ -78,12 +109,18 @@ export const Desserts = () => (
                     borderStyle='solid'
                     borderColor='#00000014'
                     borderRadius='8px'
-                    px='24px'
-                    py='14px'
+                    pl={{ xl: '24px', md: '12px' }}
+                    pr={{ xl: '22px', md: '12px' }}
+                    py='9px'
                 >
-                    <Flex w='70%' gap='12px'>
+                    <Flex gap='5px'>
                         <Image src='/icons/bayLeaf.svg' alt='pot' />
-                        <Text fontSize='20px' noOfLines={1} fontWeight='500' textAlign='left'>
+                        <Text
+                            fontSize={{ xl: '18px', md: '16px' }}
+                            noOfLines={1}
+                            fontWeight='500'
+                            textAlign='left'
+                        >
                             Воздушное банановое печенье на сковороде
                         </Text>
                     </Flex>

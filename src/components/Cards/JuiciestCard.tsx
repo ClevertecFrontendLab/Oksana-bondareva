@@ -17,17 +17,41 @@ const JuiciestCard: React.FC<RecipeCardProps> = ({
     recommendedBy,
 }) => (
     <Box
-        maxW='668px'
+        maxW={{ xl: '665px', md: '356px' }}
         border='1px solid #00000014'
         borderRadius='8px'
         overflow='hidden'
-        boxShadow='md'
         display='flex'
+        pr={{ xl: '0', md: '8px' }}
     >
         <Box position='relative'>
-            <Image src={imageUrl} alt={title} height='100%' width='346px' objectFit='cover' />
+            <Box position='relative'>
+                <Image
+                    src={imageUrl}
+                    alt={title}
+                    h={{ xl: '100%', md: '128px' }}
+                    w={{ xl: '346px', md: '162px' }}
+                    objectFit='cover'
+                />
+                <Flex
+                    display={{ xl: 'none', md: 'flex' }}
+                    position='absolute'
+                    top='8px'
+                    left='8px'
+                    background='#FFFFD3'
+                    borderRadius='4px'
+                    px='4px'
+                    gap='2px'
+                    alignItems='center'
+                    zIndex='1'
+                >
+                    <Image src={tagIcon} alt={title} w='16px' h='16px' />
+                    <Text fontSize='14px'>{tag}</Text>
+                </Flex>
+            </Box>
             {isRecommended && (
                 <Flex
+                    display={{ xl: 'flex', md: 'none' }}
                     position='absolute'
                     bottom='20px'
                     left='24px'
@@ -40,15 +64,28 @@ const JuiciestCard: React.FC<RecipeCardProps> = ({
                     gap='8px'
                 >
                     <Image src={recommendedBy?.avatar} alt='avatar' h='16px' w='16px' />
-                    <Text fontSize='12px' fontWeight='500'>
+                    <Text fontSize='14px' fontWeight='500'>
                         {recommendedBy?.name} рекомендует
                     </Text>
                 </Flex>
             )}
         </Box>
-        <Box p='4' textAlign='left' pl='24px' pt='20px' maxW='274px'>
-            <Flex justifyContent='space-between' mb='24px'>
+        <Box
+            textAlign='left'
+            pl={{ xl: '24px', md: '10px' }}
+            pt={{ xl: '20px', md: '10px' }}
+            w={{ xl: '300px', md: '198px' }}
+            display='flex'
+            flexDirection='column'
+            height={{ md: '100%' }}
+        >
+            <Flex
+                justifyContent='space-between'
+                mb={{ xl: '26px', md: '2px' }}
+                pr={{ xl: '10px', md: '0px' }}
+            >
                 <Flex
+                    display={{ xl: 'flex', md: 'none' }}
                     background='#FFFFD3'
                     borderRadius='4px'
                     px='8px'
@@ -57,9 +94,9 @@ const JuiciestCard: React.FC<RecipeCardProps> = ({
                     alignItems='center'
                 >
                     <Image src={tagIcon} alt={title} w='16px' h='16px' />
-                    <Text>{tag}</Text>
+                    <Text fontSize='14px'>{tag}</Text>
                 </Flex>
-                <Flex gap='15px'>
+                <Flex gap='16px' pl={{ xl: '0px', md: '4px' }}>
                     {favorites && (
                         <Flex align='center' gap='5px'>
                             <FavoritesIcon w='12px' h='12px' />
@@ -78,40 +115,59 @@ const JuiciestCard: React.FC<RecipeCardProps> = ({
                     )}
                 </Flex>
             </Flex>
-            <Heading
-                fontSize='20px'
-                fontWeight='500'
-                whiteSpace='nowrap'
-                overflow='hidden'
-                textOverflow='ellipsis'
+            <Box flex='1'>
+                <Heading
+                    fontSize={{ xl: '20px', md: '16px' }}
+                    fontWeight='500'
+                    whiteSpace={{ xl: 'nowrap', md: 'wrap' }}
+                    overflow='hidden'
+                    textOverflow='ellipsis'
+                    letterSpacing={0.8}
+                    lineHeight={{ xl: 1 }}
+                    noOfLines={2}
+                >
+                    {title}
+                </Heading>
+                <Text
+                    fontSize='14px'
+                    noOfLines={3}
+                    mt='8px'
+                    mb={{ xl: '30px', md: '12px' }}
+                    display={{ xl: '-webkit-box', md: 'none' }}
+                >
+                    {description}
+                </Text>
+            </Box>
+            <Flex
+                gap={{ xl: '8px', md: '12px' }}
+                justifyContent='right'
+                pb={{ xl: '19px', md: '4px' }}
             >
-                {title}
-            </Heading>
-            <Text fontSize='14px' noOfLines={3} mt='8px' mb='24px'>
-                {description}
-            </Text>
-            <Flex gap='8px' justifyContent='right'>
                 <Button
                     display='flex'
                     gap='8px'
                     background='white'
-                    py='6px'
-                    px='12px'
+                    px={{ xl: '12px', md: '6px' }}
                     border='1px solid#0000007A'
                     borderRadius='6px'
                     cursor='pointer'
+                    fontSize={{ xl: '14px', md: '12px' }}
+                    h={{ xl: '33px', md: '24px' }}
+                    minW='auto'
                 >
-                    <FavoritesIcon w='12px' h='12px' />
-                    Сохранить
+                    <FavoritesIcon />
+                    <Text display={{ xl: 'inline', md: 'none' }}>Сохранить</Text>
                 </Button>
                 <Button
                     background='#000000EB'
                     color='white'
-                    py='6px'
-                    px='12px'
+                    pr={{ xl: '12px', md: '9px' }}
+                    pl={{ xl: '12px', md: '9px' }}
                     border='1px solid #000000EB'
                     borderRadius='6px'
                     cursor='pointer'
+                    fontSize={{ xl: '14px', md: '12px' }}
+                    h={{ xl: '33px', md: '24px' }}
                 >
                     Готовить
                 </Button>

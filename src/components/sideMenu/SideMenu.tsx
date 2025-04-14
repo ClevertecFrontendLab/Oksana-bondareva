@@ -35,10 +35,12 @@ const MenuItem: React.FC<{
             <Link to='/vegan' style={{ textDecoration: 'none', width: '100%' }}>
                 <AccordionButton
                     h='48px'
+                    minW='235px'
                     display='flex'
                     alignItems='center'
-                    gap='16px'
-                    px='8px'
+                    fontWeight={500}
+                    gap='14px'
+                    px='9px'
                     py='12px'
                     cursor='pointer'
                     border='none'
@@ -58,17 +60,18 @@ const MenuItem: React.FC<{
                     <AccordionPanel
                         display='flex'
                         flexDirection='column'
-                        pl='40px'
-                        gap='8px'
-                        pt='8px'
+                        pl='42px'
+                        gap='4px'
+                        pt='3px'
+                        minW='245px'
+                        pb='2px'
                     >
                         {item.children.map((sub) => (
                             <Flex
                                 key={sub.label}
                                 alignItems='center'
-                                gap='12px'
                                 py='4px'
-                                pl='16px'
+                                pl='12px'
                                 position='relative'
                                 borderLeft='1px solid #C4FF61'
                                 fontWeight={activeSubItem === sub.label ? 'bold' : 'normal'}
@@ -103,16 +106,18 @@ const SideMenu: React.FC = () => {
 
     return (
         <Flex
+            display={{ xl: 'flex', md: 'none' }}
             flexDirection='column'
             justifyContent='space-between'
-            w='256px'
-            h='calc(130vh - 80px)'
+            w='260px'
+            minW='260px'
+            h='calc(130vh - 90px)'
             pt='34px'
             pb='32px'
-            borderRight='1px solid #00000033'
-            pl='10px'
+            pl='12px'
+            boxShadow='md'
         >
-            <Accordion allowToggle overflowY='auto' border='none' pr='10px'>
+            <Accordion allowToggle overflowY='auto' border='none' pr='15px'>
                 {menuItems.map((item, index) => (
                     <MenuItem
                         key={`${item.label}-${index}`}
@@ -124,11 +129,11 @@ const SideMenu: React.FC = () => {
                     />
                 ))}
             </Accordion>
-            <Flex flexDirection='column' textAlign='left' pl='24px' gap='16px' w='208px'>
-                <Text color='#0000003D' fontSize='16px'>
+            <Flex flexDirection='column' textAlign='left' pl='16px' gap='12px' w='190px'>
+                <Text color='#0000003D' fontSize='12px'>
                     Версия программы 03.25
                 </Text>
-                <Text color='#000000A3' fontSize='12px'>
+                <Text color='#000000A3' fontSize='12px' pr='5px'>
                     Все права защищены, ученический файл, ©Клевер Технолоджи, 2025
                 </Text>
                 <Flex fontSize='12px' fontWeight='600' gap='6px' alignItems='center'>

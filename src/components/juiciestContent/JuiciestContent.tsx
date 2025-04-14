@@ -8,33 +8,6 @@ import { VeganKitchen } from '../veganKitchen/VeganKitchen';
 const recipesJuiciest = [
     {
         id: '1',
-        title: 'Кнели со спагетти',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        imageUrl: '/images/quenelle.png',
-        tag: 'Вторые блюда',
-        tagIcon: '/icons/fryingPan.svg',
-        favorites: 85,
-        likes: 152,
-    },
-    {
-        id: '2',
-        title: 'Пряная ветчина по итальянски',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        imageUrl: '/images/meet.png',
-        tag: 'Вторые блюда',
-        tagIcon: '/icons/fryingPan.svg',
-        favorites: 159,
-        likes: 257,
-        isRecommended: true,
-        recommendedBy: {
-            avatar: '/images/elena.png',
-            name: 'Елена Высоцкаят',
-        },
-    },
-    {
-        id: '3',
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
@@ -50,7 +23,7 @@ const recipesJuiciest = [
         },
     },
     {
-        id: '4',
+        id: '2',
         title: 'Том-ям с капустой кимчи',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
@@ -59,6 +32,33 @@ const recipesJuiciest = [
         tagIcon: '/icons/international-food.svg',
         favorites: 124,
         likes: 324,
+    },
+    {
+        id: '3',
+        title: 'Пряная ветчина по итальянски',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        imageUrl: '/images/meet.png',
+        tag: 'Вторые блюда',
+        tagIcon: '/icons/fryingPan.svg',
+        favorites: 159,
+        likes: 257,
+        isRecommended: true,
+        recommendedBy: {
+            avatar: '/images/elena.png',
+            name: 'Елена Высоцкаят',
+        },
+    },
+    {
+        id: '4',
+        title: 'Кнели со спагетти',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        imageUrl: '/images/quenelle.png',
+        tag: 'Вторые блюда',
+        tagIcon: '/icons/fryingPan.svg',
+        favorites: 85,
+        likes: 152,
     },
     {
         id: '5',
@@ -107,12 +107,16 @@ const recipesJuiciest = [
 ];
 
 const JuiciestContent = () => (
-    <Flex maxW='1360px' flexDirection='column' width='100%'>
+    <Flex
+        flexDirection='column'
+        maxW={{ xl: '1375px', md: '747px' }}
+        pl={{ xl: '16x', md: '20px' }}
+    >
         <PageHeader title='Самое сочное' />
-        <Box width='100%' pt='40px' pb='16px'>
+        <Box pt='32px' pb='16px'>
             <JuiciestList recipes={recipesJuiciest} />
         </Box>
-        <Box pb='40px'>
+        <Box pb={{ xl: '40x', md: '32px' }} mr={{ xl: '0px', md: '20px' }}>
             <ButtonUpload />
         </Box>
         <VeganKitchen />

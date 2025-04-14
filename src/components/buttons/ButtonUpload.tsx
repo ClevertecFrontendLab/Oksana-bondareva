@@ -10,6 +10,7 @@ export const ButtonUpload = () => (
         border='1px solid #B1FF2E'
         borderRadius='6px'
         cursor='pointer'
+        ml='18px'
     >
         Загрузить еще
     </Button>

@@ -17,7 +17,7 @@ function App() {
     return (
         <Router>
             <Header />
-            <Flex justifyContent='space-between'>
+            <Flex gap='6px' fontFamily="'Inter', sans-serif">
                 <SideMenu />
                 <Routes>
                     <Route path='/' element={<HomePage />} />

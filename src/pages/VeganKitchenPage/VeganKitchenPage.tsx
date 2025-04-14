@@ -1,9 +1,9 @@
 import { Flex } from '@chakra-ui/react';
 
-import VeganKitchenContent from '~/components/VeganKitchenContent/VeganKitchenContent';
+import VeganKitchenContent from '~/components/veganKitchenContent/VeganKitchenContent';
 
 const VeganKitchenPage = () => (
-    <Flex w='72%'>
+    <Flex>
         <VeganKitchenContent />
     </Flex>
 );

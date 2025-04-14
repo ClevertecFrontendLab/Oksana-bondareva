@@ -6,8 +6,8 @@ export const menuItems = [
     { icon: '/icons/bread.svg', alt: 'bread', label: 'Десерты, выпечка' },
     { icon: '/icons/dishwasher.svg', alt: 'dishwasher', label: 'Блюда на гриле' },
     {
-        icon: '/icons/fryingPan.svg',
-        alt: 'frying pan',
+        icon: '/icons/bayLeaf.svg',
+        alt: 'bay leaf',
         label: 'Веганская кухня',
         children: [
             { label: 'Закуски' },

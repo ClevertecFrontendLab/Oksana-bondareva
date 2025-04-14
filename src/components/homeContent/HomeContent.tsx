@@ -1,9 +1,9 @@
-import { Box, Button, Flex, Heading } from '@chakra-ui/react';
-import { useNavigate } from 'react-router';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 
 import { AuthorCardProps } from '~/utils/types';
 
-import { ArrowRight } from '../icons/ArrowRight';
+import { ButtonAllAuthors } from '../buttons/ButtonAllAuthors';
+import { ButtonEntireSelection } from '../buttons/ButtonEntireSelection';
 import { PageHeader } from '../pageHeader/PageHeader';
 import { VeganKitchen } from '../veganKitchen/VeganKitchen';
 import { AuthorsList } from './AuthorsList';
@@ -50,6 +50,16 @@ const recipesNew = [
         imageUrl: '/images/salad.png',
         tag: 'Салаты',
         tagIcon: '/icons/eggplant.svg',
+    },
+    {
+        id: '5',
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        imageUrl: '/images/pancake.png',
+        tag: 'Десерты, выпечка',
+        tagIcon: '/icons/bread.svg',
+        likes: 1,
     },
 ];
 
@@ -146,67 +156,70 @@ const authorsData: AuthorCardProps[] = [
     },
 ];
 
-const HomeContent = () => {
-    const navigate = useNavigate();
-
-    return (
-        <Flex maxW='1360px' flexDirection='column' width='100%'>
-            <PageHeader title='Приятного аппетита!' />
-            <Box width='100%' px='20px'>
-                <Heading as='h2' fontSize='48px' py='32px' fontWeight='500' textAlign='left'>
-                    Новые рецепты
+const HomeContent = () => (
+    <Flex
+        flexDirection='column'
+        maxW={{ xl: '1375px', md: '768px' }}
+        pl={{ xl: '16px', md: '40px' }}
+    >
+        <PageHeader title='Приятного аппетита!' />
+        <Box width='100%' pt={{ xl: '48px', md: '32px' }}>
+            <Heading
+                as='h2'
+                fontSize={{ xl: '48px', md: '24px' }}
+                pb={{ xl: '22px', md: '16px' }}
+                fontWeight={500}
+                textAlign='left'
+            >
+                Новые рецепты
+            </Heading>
+            <NewRecipeList recipes={recipesNew} />
+        </Box>
+        <Box width='100%' py={{ xl: '35px', md: '32px' }}>
+            <Flex justifyContent='space-between' alignItems='center'>
+                <Heading
+                    as='h2'
+                    fontSize={{ xl: '48px', md: '24px' }}
+                    pb={{ xl: '21px', md: '14px' }}
+                    fontWeight={500}
+                    textAlign='left'
+                    letterSpacing={{ xl: 1.8, md: 1 }}
+                >
+                    Самое сочное
                 </Heading>
-                <NewRecipeList recipes={recipesNew} />
-            </Box>
-            <Box width='100%' px='20px' py='40px'>
-                <Flex justifyContent='space-between' alignItems='center'>
-                    <Heading as='h2' fontSize='48px' pb='32px' fontWeight='500' textAlign='left'>
-                        Самое сочное
-                    </Heading>
-                    <Button
-                        display='flex'
-                        gap='8px'
-                        h='48px'
-                        background='#B1FF2E'
-                        fontSize='18px'
-                        fontWeight='600'
-                        py='6px'
-                        px='12px'
-                        border='1px solid #B1FF2E'
-                        borderRadius='6px'
-                        cursor='pointer'
-                        onClick={() => navigate('/best')}
-                    >
-                        Вся подборка
-                        <ArrowRight />
-                    </Button>
-                </Flex>
-                <JuiciestList recipes={recipesJuiciest} />
-            </Box>
-            <Box mx='24px' p='24px' background='#C4FF61' borderRadius='16px' mb='40px'>
-                <Flex justifyContent='space-between' alignItems='center'>
-                    <Heading as='h2' fontSize='48px' pb='32px' fontWeight='500' textAlign='left'>
-                        Кулинарные блоги
-                    </Heading>
-                    <Button
-                        display='flex'
-                        gap='8px'
-                        h='48px'
-                        background='#C4FF61'
-                        fontSize='18px'
-                        fontWeight='600'
-                        border='none'
-                        cursor='pointer'
-                    >
-                        Все авторы
-                        <ArrowRight />
-                    </Button>
-                </Flex>
-                <AuthorsList authors={authorsData} />
-            </Box>
-            <VeganKitchen />
-        </Flex>
-    );
-};
+                <Box display={{ xl: 'block', md: 'none' }}>
+                    <ButtonEntireSelection />
+                </Box>
+            </Flex>
+            <JuiciestList recipes={recipesJuiciest} />
+            <Flex justifyContent='center' display={{ xl: 'none', md: 'flex' }}>
+                <ButtonEntireSelection />
+            </Flex>
+        </Box>
+        <Box
+            mt={{ xl: '10px', md: '0px' }}
+            px={{ xl: '24px', md: '10px' }}
+            pt={{ xl: '20px', md: '11px' }}
+            pb={{ xl: '24px', md: '15px' }}
+            background='#C4FF61'
+            borderRadius='16px'
+            mb={{ xl: '40px', md: '32px' }}
+        >
+            <Flex justifyContent='space-between' alignItems='center'>
+                <Heading as='h2' fontSize={{ xl: '38px', md: '24px' }} textAlign='left'>
+                    Кулинарные блоги
+                </Heading>
+                <Box display={{ xl: 'flex', md: 'none' }}>
+                    <ButtonAllAuthors />
+                </Box>
+            </Flex>
+            <AuthorsList authors={authorsData} />
+            <Flex display={{ xl: 'none', md: 'flex' }} justifyContent='center'>
+                <ButtonAllAuthors />
+            </Flex>
+        </Box>
+        <VeganKitchen />
+    </Flex>
+);
 
 export default HomeContent;

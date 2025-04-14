@@ -6,8 +6,13 @@ import { PeopleIcon } from '../icons/PeopleIcon';
 import { WriteIcon } from '../icons/WriteIcon';
 
 export const Marks = () => (
-    <Flex flexDirection='column' justifyContent='space-between' h='calc(130vh - 80px)'>
-        <Flex flexDirection='column' gap='24px' pt='16px' pl='40%'>
+    <Flex
+        flexDirection='column'
+        justifyContent='space-between'
+        h='calc(130vh - 70px)'
+        display={{ xl: 'flex', md: 'none' }}
+    >
+        <Flex flexDirection='column' gap='24px' pt='16px' pl='68%'>
             <Flex gap='8px' p='8px' alignItems='center'>
                 <FavoritesIcon />
                 <Text fontSize='16px' fontWeight='600' color='#2DB100'>
@@ -35,6 +40,7 @@ export const Marks = () => (
             alignItems='center'
             justifyContent='center'
             position='relative'
+            pl='62%'
         >
             <Box
                 position='absolute'
@@ -42,7 +48,6 @@ export const Marks = () => (
                 h='100%'
                 background='radial-gradient(50% 50% at 50% 50%, rgba(196, 255, 97, 0.7) 0%, rgba(255, 255, 255, 0) 100%)'
                 borderRadius='full'
-                zIndex={0}
             />
             <Flex flexDirection='column' alignItems='center' zIndex={1}>
                 <WriteIcon />

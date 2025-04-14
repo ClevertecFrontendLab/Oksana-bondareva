@@ -99,28 +99,38 @@ const recipesVegan = [
     },
 ];
 
-interface VeganKitchenPageProps {
-    subcategory: string | null;
-    setSubcategory: (sub: string) => void;
-}
-
-const VeganKitchenContent: React.FC<VeganKitchenPageProps> = () => {
+const VeganKitchenContent = () => {
     const subcategories =
         menuItems.find((item: { label: string }) => item.label === 'Веганская кухня')?.children ||
         [];
 
     return (
-        <Flex maxW='1360px' flexDirection='column' width='100%'>
+        <Flex
+            maxW={{ xl: '1380px', md: '750px' }}
+            pl={{ xl: '16x', md: '20px' }}
+            flexDirection='column'
+        >
             <PageHeader
                 title='Веганская кухня'
                 subtitle='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.'
             />
-            <Flex justifyContent='center' gap='16px' pt='26px'>
+            <Flex
+                justifyContent='center'
+                gap='22px'
+                pt={{ xl: '40px', md: '30px' }}
+                letterSpacing={{ xl: 0.5, md: 0 }}
+            >
                 {subcategories.map((sub: MenuSideItem) => (
-                    <Box key={sub.label} position='relative' display='inline-block'>
+                    <Box
+                        key={sub.label}
+                        position='relative'
+                        display='inline-block'
+                        maxW='1380px'
+                        whiteSpace='nowrap'
+                    >
                         <Text
                             cursor='pointer'
-                            fontSize='16px'
+                            fontSize={{ xl: '16px', md: '14px' }}
                             fontWeight='500'
                             color={sub.label === 'Вторые блюда' ? '#2DB100' : '#134B00'}
                         >
@@ -139,10 +149,10 @@ const VeganKitchenContent: React.FC<VeganKitchenPageProps> = () => {
                     </Box>
                 ))}
             </Flex>
-            <Box width='100%' pt='26px' pb='16px'>
+            <Box width='100%' pt='32px' pb='16px'>
                 <JuiciestList recipes={recipesVegan} />
             </Box>
-            <Box pb='40px'>
+            <Box pb={{ xl: '40x', md: '32px' }} mr={{ xl: '0px', md: '20px' }}>
                 <ButtonUpload />
             </Box>
             <Desserts />
